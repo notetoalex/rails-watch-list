@@ -1,0 +1,11 @@
+<!-- app/views/lists/top.html.erb -->
+<h1><%= @list.name %></h1>
+<div id="list">
+  <% @list.bookmarks.each do |bookmark| %>
+    <%= bookmark.movie.title %>
+    <p></p>
+  <% end %>
+  <p>
+    <%# <%= link_to "Show movies in the list", list %>
+  </p>
+</div>

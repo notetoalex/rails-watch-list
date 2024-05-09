@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :lists, only: [:create, :index, :destroy, :new, :show]
+  # the above actions were specified in the day's challenge user stories
 end
