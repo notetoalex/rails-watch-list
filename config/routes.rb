@@ -6,8 +6,15 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root to: "lists#index"
 
-  resources :lists, only: [:create, :index, :destroy, :new, :show]
+  # resources :lists, only: [:create, :index, :destroy, :new, :show]
   # the above actions were specified in the day's challenge user stories
+
+  resources :lists, except: [:edit, :update] do
+    resources :bookmarks, only: [:new, :create]
+  end
+
+  resources :bookmarks, only: :destroy
+
 end
