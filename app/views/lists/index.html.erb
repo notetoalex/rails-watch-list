@@ -4,8 +4,10 @@
   <% @lists.each do |list| %>
     <%= list.name %>
     <p>
-      <%= link_to "Show movies in the list", list %>
-    </p>
-  <% end %>
-  <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
-</div>
+      <%= list.photo %>
+      <p>
+        <%= link_to "Show movies in the list", list %>
+      </p>
+    <% end %>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
+  </div>
