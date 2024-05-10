@@ -3,11 +3,16 @@
 <div id="lists">
   <% @lists.each do |list| %>
     <%= list.name %>
-    <p>
-      <%= list.photo %>
-      <p>
-        <%= link_to "Show movies in the list", list %>
-      </p>
+    <% if list.photo.attached? %>
+      <%= cl_image_tag(list.photo.key, width: 400, height: 300, crop: :fill) %>
+      <%# <%= cl_image_tag list.photo.key %>
+    <% else %>
+      <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
     <% end %>
-    <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
-  </div>
+    <p>
+      <%= link_to "Show movies in the list", list %>
+    </p>
+  <% end %>
+  <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
+</div>
+
